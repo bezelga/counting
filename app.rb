@@ -9,5 +9,5 @@ redis_url = "redis://#{redis_domain}:#{redis_port}"
 $redis = Redis.new(:url => redis_url)
 
 get '/' do
-  $redis.incr("counting").to_s
+  ($redis.incr("counting") + 100).to_s
 end
